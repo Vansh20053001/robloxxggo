@@ -564,13 +564,27 @@ header .wrap {
   align-items: center
 }
 
+header {
+  position: relative
+}
+
 header .logo {
-  height: 30px
+  display: inline-flex;
+  height: 30px;
+  flex: 0 0 auto
 }
 
 footer .logo img,
 header .logo img {
-  height: 100%
+  height: 100%;
+  width: auto
+}
+
+header .logo img {
+  display: block;
+  width: 128px;
+  max-width: 38vw;
+  object-fit: contain
 }
 
 .content,
@@ -1015,6 +1029,12 @@ button.med,
 .pager {
   margin: 24px auto;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
 }
 
 .pager a {
@@ -1024,7 +1044,7 @@ button.med,
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-  margin: 0 8px
+  margin: 0
 }
 
 .pager a:first-child {
@@ -1054,7 +1074,8 @@ button.med,
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin: 0 8px;
+  min-width: 28px;
+  margin: 0;
 }
 
 .developer .prof-pic,
@@ -1966,11 +1987,14 @@ footer {
 
 @media only screen and (max-width:1140px) {
   header .wrap {
-    padding: 24px
+    justify-content: flex-start;
+    min-height: 74px;
+    padding: 20px 24px
   }
 
   .menu_top,
   .menu_top.open {
+    height: 100vh;
     min-height: 100vh;
     background-color: #05324a;
     top: 0
@@ -2019,13 +2043,14 @@ footer {
   .menu_top menu {
     flex-direction: column;
     padding: 0;
-    margin-top: 0
+    margin-top: 0;
+    width: 100%
   }
 
   .menu_top .search {
     display: block;
-    margin-bottom: 24px;
-    margin-top: 48px
+    width: min(420px, calc(100vw - 48px));
+    margin: 0 auto 24px
   }
 
   .menu_top .wrap .links,
@@ -2090,22 +2115,26 @@ footer {
     width: 100vw;
     font-size: 24px;
     position: fixed;
+    inset: 0 auto auto 100%;
     left: 100%;
     z-index: 99;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     transform: translateZ(0);
     transition: transform .22s, opacity 0 .22s;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     flex-direction: column-reverse;
-    padding: 80px 0 0
+    gap: 14px;
+    box-sizing: border-box;
+    padding: 84px 24px 28px
   }
 
   .menu_top.open {
-    position: relative;
-    padding: 60px 0 0;
+    position: fixed;
+    padding: 84px 24px 28px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     flex-direction: column-reverse;
     transform: translate3d(-100%, 0, 0);
     transition: transform .22s
@@ -2118,10 +2147,10 @@ footer {
 
   .menu_top a {
     display: block;
-    margin-bottom: 18px;
+    margin-bottom: 12px;
     margin-right: 0;
     color: #fff;
-    font-size: 24px;
+    font-size: 20px;
     text-align: left;
     text-decoration: none
   }
@@ -2238,6 +2267,10 @@ footer {
     min-width: 0;
   }
 
+  header .wrap {
+    flex-direction: row;
+  }
+
   .main,
   .sidebar {
     width: 100%;
@@ -2280,12 +2313,15 @@ footer {
   }
 
   .top-chart-layout {
-    display: block
+    display: block;
+    padding-inline: 0
   }
 
   .top-chart-list .row {
     grid-template-columns: 56px minmax(0, 1fr) minmax(80px, auto);
-    font-size: 20px
+    gap: 8px;
+    font-size: 20px;
+    padding: 8px
   }
 
   .top-chart-list .name {
@@ -2408,6 +2444,15 @@ footer {
 
   .main .head h2 {
     padding: 0 8px
+  }
+
+  .top-chart-list .row {
+    grid-template-columns: 44px minmax(0, 1fr) minmax(68px, auto);
+    font-size: 16px
+  }
+
+  .top-chart-list .value {
+    min-width: 68px
   }
 
   .content,
@@ -2563,29 +2608,31 @@ footer {
   }
 
   .pager {
-    display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px
+    gap: 6px;
+    padding-inline: 4px;
+    font-size: 16px
   }
 
   .pager a,
   .pager .num {
     aspect-ratio: 1/1;
-    width: auto;
-    height: 40px;
+    min-width: 34px;
+    height: 34px;
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     padding: 0;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 40px
   }
 
   .pager .pager-ellipsis {
     aspect-ratio: auto;
-    min-width: 28px;
+    min-width: 18px;
+    height: 34px;
     background: transparent;
   }
 
