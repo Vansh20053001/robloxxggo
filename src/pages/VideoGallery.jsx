@@ -111,10 +111,10 @@ export default function VideoGallery() {
       <section className="bnr_970">
         <center />
       </section>
-      <span class="push">
-        <span class="circle_border">
-          <span class="circle">
-            <img loading="lazy" src="https://cdn.nichesites.pikoya.com/general/images/alarm" title="Alarm" alt="Roblox Strategy Hub: Stats, Videos &amp; Power Tips" class="mobile" />
+      <span className="push">
+        <span className="circle_border">
+          <span className="circle">
+            <img loading="lazy" src="https://cdn.nichesites.pikoya.com/general/images/alarm" title="Alarm" alt="Roblox Strategy Hub: Stats, Videos &amp; Power Tips" className="mobile" />
           </span>
         </span>
       </span>
@@ -163,6 +163,9 @@ export default function VideoGallery() {
               poster={activeVideo.playback.poster || activeVideo.playback.previewImage || activeVideo.image}
               controls
               autoPlay
+              muted
+              playsInline
+              preload="metadata"
             >
               <source src={activeVideo.playback.videoUrl} type={activeVideo.playback.videoType || 'video/mp4'} />
             </video>

@@ -1893,6 +1893,9 @@ footer {
 
 @media only screen and (max-width:760px) {
   .video-popup {
+    align-items: center;
+    display: flex;
+    height: 100dvh;
     padding: 16px
   }
 
@@ -1902,7 +1905,8 @@ footer {
   }
 
   .video-popup__player video {
-    max-height: 42vh
+    max-height: 52dvh;
+    min-height: 180px
   }
 
   .video-popup__player h3 {
@@ -2607,6 +2611,10 @@ footer {
 @media only screen and (max-width:480px) {
   .popup {
     display: none
+  }
+
+  .popup.video-popup {
+    display: flex
   }
 
   .section-gallery .flex.center .button {
