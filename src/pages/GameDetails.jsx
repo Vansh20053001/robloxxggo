@@ -168,7 +168,7 @@ export default function GameDetails() {
                 
             </div>
 
-            <div className="game_details" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '12px', marginTop: '18px' }}>
+            <div className="game_details game_details_grid">
               {[
                 { icon: 'user.svg', label: 'Players', value: game.players },
                 { icon: 'fav.svg', label: 'Favorites', value: game.favorites },
